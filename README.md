@@ -1,5 +1,7 @@
 # 柔灵小程序插件文档
 
+文档链接：https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5c4a700b9e5facd7&token=1515015640&lang=zh_CN
+
 ## 购买柔灵产品
 开发者可联系业务人员购买柔灵肌电产品与脑电产品。
 
@@ -35,7 +37,7 @@ deviceModel: {},///数据类型：{deviceName: device.name, isConnected:false, m
 ### 10、设备电量
 调用 plugin.getBattery(bleModel), 将返回设备当前的电量，取值为0-100
 ### 11、截取一段数据，5秒
-调用 plugin.startPickupData(), 将从此刻开始，5秒后返回一段脑电数据，共1250条
+调用 plugin.startPickupData(), 将返回一段5秒的脑电数据，共1250条
 ### 12、设置滤波参数
 调用 plugin.filterParam(order, hp, lp), 设置滤波参数， order-滤波阶数，hp-高通，lp-低通，设置该函数后，会作用于返回的实时滤波数据
 
