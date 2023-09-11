@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/wave"
+  ],
+  "plugins": {
+    "flect-plugin": {
+      "version": "dev",
+      "provider": "wx5c4a700b9e5facd7"
+    }
+  }
+}

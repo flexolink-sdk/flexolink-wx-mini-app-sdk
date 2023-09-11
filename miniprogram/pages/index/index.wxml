@@ -1,0 +1,13 @@
+<navigator id="nav" url="plugin://flect-plugin/flect-page">
+  柔灵小程序插件
+</navigator>
+
+  <view id="container">
+    <view class="item" wx:for="{{items}}" bind:tap="onClick" data-name="{{index}}">{{item}}</view>
+  </view>
+  <view class="item" wx:for="{{deviceList}}">
+      <view class="deviceName" >{{item.deviceName}}</view>
+      <button class="connectedBtn" bind:tap="changeConnectState" data-name="{{item}}">{{item.isConnected ? "已连接" : "连接"}}</button>
+    </view>
+  <text class="text">{{realData}}</text>
+

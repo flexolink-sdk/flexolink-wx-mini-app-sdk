@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "flect-list": "plugin://flect-plugin/flect-component"
+  }
+}

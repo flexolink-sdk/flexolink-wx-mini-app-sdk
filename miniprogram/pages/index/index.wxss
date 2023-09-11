@@ -1,0 +1,57 @@
+/* pages/index/index.wxss */
+#nav {
+  text-align: center;
+  background: #eeeeee;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+#add {
+  margin: 1em;
+}
+
+.item {
+  justify-content: flex-start;
+  padding: 10rpx;
+}
+
+.text {
+  width: 100%;   
+  line-height: 40px;
+  /* 超出部分隐藏 */
+  overflow: hidden;     
+  /* 末尾加省略号 */
+  text-overflow:ellipsis;  
+ 
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  /* 行数，也可以设为1，用来做单行 */
+  -webkit-line-clamp:10;
+ 
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 200rpx 20rpx;
+  box-sizing: border-box;
+} 
+
+.flex-wrp{
+  display:flex;
+}
+.flex-item{
+  width: 200rpx;
+  height: 300rpx;
+  font-size: 26rpx;
+}
+.flex-item-V{
+  margin: 0 auto;
+  width: 300rpx;
+  height: 200rpx;
+}
+
