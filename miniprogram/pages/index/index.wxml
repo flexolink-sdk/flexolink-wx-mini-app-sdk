@@ -2,6 +2,7 @@
   柔灵小程序插件
 </navigator>
 
+  <text class="text">{{realData}}</text>
   <view id="container">
     <view class="item" wx:for="{{items}}" bind:tap="onClick" data-name="{{index}}">{{item}}</view>
   </view>
@@ -9,5 +10,5 @@
       <view class="deviceName" >{{item.deviceName}}</view>
       <button class="connectedBtn" bind:tap="changeConnectState" data-name="{{item}}">{{item.isConnected ? "已连接" : "连接"}}</button>
     </view>
-  <text class="text">{{realData}}</text>
+  
 

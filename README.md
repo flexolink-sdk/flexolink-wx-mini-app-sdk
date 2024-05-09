@@ -1,6 +1,7 @@
 # 柔灵小程序插件文档
 
 文档链接：https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5c4a700b9e5facd7&token=1515015640&lang=zh_CN
+示例程序：https://github.com/flexolink-sdk/flexolink-wx-mini-app-sdk
 
 ## 购买柔灵产品
 开发者可联系业务人员购买柔灵肌电产品与脑电产品。
@@ -27,7 +28,7 @@ deviceModel: {},///数据类型：{deviceName: device.name, isConnected:false, m
 调用 plugin.openRealData(openReal, function (realData)), 参数 openReal 为布尔型，传入 true 将开始实时数据监听，参数 function (realData)，为实时数据监听的回调函数，每五秒回调1次，共1250条脑电数据。
 ![链接](./实时数据.png)
 ### 6、实时滤波数据监听
-调用 plugin.openFilterRealData(openFilterReal, func (realData)), 参数 openFilterReal 为布尔值型，传入 true 将开始实时滤波数据监听，参数 function (realData)，为实时滤波数据监听的回调函数，每五秒回调1次，共1250条脑电数据。
+调用 plugin.openFilterRealData(openFilterReal, func (realData)), 参数 openFilterReal 为布尔值型，传入 true 将开始实时滤波数据监听，参数 function (realData)，为实时滤波数据监听的回调函数。
 ### 7、是否佩戴设备
 调用 plugin.isWear(bleModel), 会返回是否佩戴的值
 ### 8、是否连接设备
@@ -41,7 +42,25 @@ deviceModel: {},///数据类型：{deviceName: device.name, isConnected:false, m
 ### 12、设置滤波参数
 调用 plugin.filterParam(order, hp, lp), 设置滤波参数， order-滤波阶数，hp-高通，lp-低通，设置该函数后，会作用于返回的实时滤波数据
 
+### 13、开始采集数据
 
+调用 plugin.onStartRecord() 开始采集数据，在采集数据前，需要判断脑贴内是否存在离线数据，可以引导用户先同步数据，否则 plugin.onStartRecord() 将清除数据并重新开始采集
+
+### 14、查询离线数据
+
+调用 plugin.onQueryOfflineData() 查询脑贴内是否存在离线数据
+
+### 15、合并离线数据
+
+调用 plugin.mergeOfflineData((code, desc, progress)=>{} 将合并离线数据，code 与 desc 的具体含义请看 Demo，调用 plugin.mergeOfflineData 前需判断脑贴内是否存在离线数据。合并的流程涉及离线数据接收、前后端解码与上传下载，会比较费时。合并完成后，将返回一个 zip 的 url 地址，此 url 可通过开放平台的 api 进行下一步使用。
+
+### 16、取消合并离线数据
+
+调用 plugin.onCancelOfflineData() 将取消当前的离线数据合并，下次合并会从进度 0 开始，和“合并离线数据”接口成对使用
+
+### 17、擦除离线数据
+
+调用plugin.onClearOfflineData() 将擦除脑贴内的离线数据，不可恢复，因此建议给用户二次确认的机会。
 
 
 

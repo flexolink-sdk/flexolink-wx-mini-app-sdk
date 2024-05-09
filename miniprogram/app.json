@@ -5,7 +5,7 @@
   ],
   "plugins": {
     "flect-plugin": {
-      "version": "dev",
+      "version": "1.1.0",
       "provider": "wx5c4a700b9e5facd7"
     }
   }
