@@ -33,9 +33,8 @@ Page({
 
   onLoad() {
     // 授权，请填写真实的 appKey, appSecret
-    // plugin.auth('rld77eb4ff82ee', '00f7d66c9aa4480d8bb73599d82a8d8e', function(status, res){
-    // plugin.auth('appKey', 'appSecret', function(status, res){
-    // })
+    plugin.auth('appKey', 'appSecret', function(status, res){
+    })
 
     plugin.isShowToast = true
   },
@@ -227,13 +226,26 @@ Page({
           })
           return
         }
-
-        ///code -- 1000：开始解压 1001：用户取消合并 1002：合并完成  1003：接收离线数据中 1004：上传待解压数据  1005：离线数据转码中  1006：上传压缩文件
-        ///desc -- code 对应的描述
-        ///progress -- 合并进度
+        //code
+        // const MergeStartStatus = 1000
+        // const MergeCancelStatus = 1001
+        // const MergeFinishStatus = 1002
+        // const MergeFinishZipUrlStatus = 1003   没有对应的 desc，因为会返回真实的 zip url
+        // const MergeReceiveStatus = 1004
+        // const MergeUploadDecompressStatus = 1005
+        // const MergeDecodeStatus = 1006
+        // const MergeUploadZipStatus = 1007
+        //desc
+        // const MergeStartDesc = '开始合并'
+        // const MergeCancelDesc = '用户取消合并'
+        // const MergeFinishDesc = '合并完成'
+        // const MergeReceiveDesc = '接收离线数据中'
+        // const MergeUploadDecompressDesc = '上传待解压数据'
+        // const MergeDecodeDesc = '数据转码中'
+        // const MergeUploadZipDesc = '上传压缩文件中'
         plugin.mergeOfflineData((code, desc, progress)=>{
           that.setData({
-            realData: desc + ',进度：'+progress,
+            realData: desc + ',进度:'+progress,
           })
         })
       }
@@ -305,4 +317,5 @@ Page({
     ///有离线数据
     return 1;
   }
+
 })
