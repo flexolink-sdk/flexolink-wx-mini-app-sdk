@@ -33,10 +33,11 @@ Page({
 
   onLoad() {
     // 授权，请填写真实的 appKey, appSecret
-    plugin.auth('appKey', 'appSecret', function(status, res){
+    plugin.auth('', '', function(status, res){
     })
 
     plugin.isShowToast = true
+
   },
 
   changeConnectState:function(device) {
@@ -228,24 +229,24 @@ Page({
         }
         //code
         // const MergeStartStatus = 1000
-        // const MergeCancelStatus = 1001
-        // const MergeFinishStatus = 1002
-        // const MergeFinishZipUrlStatus = 1003   没有对应的 desc，因为会返回真实的 zip url
-        // const MergeReceiveStatus = 1004
-        // const MergeUploadDecompressStatus = 1005
-        // const MergeDecodeStatus = 1006
-        // const MergeUploadZipStatus = 1007
+        // const MergeReceiveStatus = 1001
+        // const MergeCancelStatus = 1002
+        // const MergeFinishStatus = 1003
+        // const MergeUploadFileStatus = 1004
+        // const MergeFaildStatus = 1005
         //desc
         // const MergeStartDesc = '开始合并'
+        // const MergeReceiveDesc = '离线数据接收中'
         // const MergeCancelDesc = '用户取消合并'
-        // const MergeFinishDesc = '合并完成'
-        // const MergeReceiveDesc = '接收离线数据中'
-        // const MergeUploadDecompressDesc = '上传待解压数据'
-        // const MergeDecodeDesc = '数据转码中'
-        // const MergeUploadZipDesc = '上传压缩文件中'
+        // const MergeFinishDesc = '合并完成，会返回真实的URL'
+        // const MergeUploadFileDesc = '上传离线文件'
+        // const MergeFaildDesc = '上传失败，会返回失败的具体原因'
+        // 当 code 为 MergeFinishStatus 时，将返回URL 地址，小程序API报告生成，参考地址：https://a4k6wy1b7b.feishu.cn/wiki/LcqLwgOoribPMIkZDZNcOOqznih, 
+
         plugin.mergeOfflineData((code, desc, progress)=>{
           that.setData({
-            realData: desc + ',进度:'+progress,
+            // realData: '当前状态:'+code+',进度:'+progress,
+            realData: '合并事件:' + desc + ',进度:'+progress,
           })
         })
       }

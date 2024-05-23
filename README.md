@@ -52,7 +52,7 @@ deviceModel: {},///数据类型：{deviceName: device.name, isConnected:false, m
 
 ### 15、合并离线数据
 
-调用 plugin.mergeOfflineData((code, desc, progress)=>{} 将合并离线数据，code 与 desc 的具体含义请看 Demo，调用 plugin.mergeOfflineData 前需判断脑贴内是否存在离线数据。合并的流程涉及离线数据接收、前后端解码与上传下载，会比较费时。合并完成后，将返回一个 zip 的 url 地址，此 url 可通过开放平台的 api 进行下一步使用。
+调用 plugin.mergeOfflineData((code, desc, progress)=>{} 将合并离线数据，code 与 desc 的具体含义请看 Demo，调用 plugin.mergeOfflineData 前需判断脑贴内是否存在离线数据。合并的流程涉及离线数据接收、前后端解码与上传下载，会比较费时。合并完成后，将返回一个 url 地址，此 url 可通过开放平台的 api 进行下一步生成报告使用。离线数据接收完后，会将脑贴断开，提高性能，以完成后续的转码和上传下载操作。
 
 ### 16、取消合并离线数据
 
